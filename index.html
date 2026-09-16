@@ -299,18 +299,25 @@
   }
   .video-thumb{
     height:280px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px;
-    background: linear-gradient(135deg, var(--surface-2), var(--accent-dim));
-    position:relative;
+    background-color: var(--surface-2); background-size:cover; background-position:center;
+    position:relative; cursor:pointer;
+  }
+  .video-thumb::before{
+    content:""; position:absolute; inset:0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.55), rgba(0,0,0,0.15));
   }
   .video-thumb .play-btn{
-    width:64px; height:64px; border-radius:50%; background:rgba(255,255,255,0.12);
-    border:1.5px solid rgba(255,255,255,0.4); display:flex; align-items:center; justify-content:center;
-    color:#fff; backdrop-filter:blur(2px);
+    width:64px; height:64px; border-radius:50%; background:rgba(255,255,255,0.15);
+    border:1.5px solid rgba(255,255,255,0.5); display:flex; align-items:center; justify-content:center;
+    color:#fff; backdrop-filter:blur(2px); position:relative; z-index:1;
+    transition: transform .15s ease, background .15s ease;
   }
+  .video-thumb:hover .play-btn{ transform: scale(1.08); background:rgba(255,255,255,0.25); }
   .video-thumb .vt-badge{
-    font-family:'IBM Plex Mono'; font-size:0.7rem; color:var(--muted); position:absolute; top:14px; left:14px;
-    background:rgba(0,0,0,0.3); padding:4px 10px; border-radius:6px;
+    font-family:'IBM Plex Mono'; font-size:0.7rem; color:#fff; position:absolute; top:14px; left:14px;
+    background:rgba(0,0,0,0.45); padding:4px 10px; border-radius:6px; z-index:1;
   }
+  .video-stage iframe{ width:100%; height:280px; border:0; display:block; }
   .video-info{ padding:18px 20px; }
   .video-info h3{ font-size:1.05rem; margin-bottom:6px; }
   .video-info p{ color:var(--muted); font-size:0.88rem; }
@@ -652,42 +659,41 @@
         <span class="cellref">B10</span>
         <h2>Vídeos em alta</h2>
       </div>
-      <p>Passe o mouse (ou toque) em um assunto para trocar o vídeo em destaque.</p>
+      <p>Passe o mouse (ou toque) em um assunto para trocar o vídeo em destaque. Clique para assistir.</p>
     </div>
     <div class="video-layout">
       <div class="video-topics" id="video-topics">
-        <div class="video-topic active" data-title="Os bastidores da nova onda de IA" data-tag="Inteligência Artificial" data-desc="Um panorama rápido de como ferramentas como Claude, ChatGPT e Gemini estão mudando o trabalho do dia a dia." data-tone="a">
+        <div class="video-topic active" data-video="aSKf0DXcLyU" data-title="Novidades e tendências em Inteligência Artificial" data-tag="Inteligência Artificial" data-desc="Panorama de 2026 sobre como os agentes de IA estão evoluindo e o que isso muda no dia a dia." data-tone="a">
           <span class="vt-tag">Inteligência Artificial</span>
-          <span class="vt-title">Os bastidores da nova onda de IA</span>
+          <span class="vt-title">Novidades e tendências em Inteligência Artificial</span>
         </div>
-        <div class="video-topic" data-title="Python do zero ao primeiro projeto" data-tag="Programação" data-desc="Um caminho direto para quem nunca programou e quer sair do zero com um projeto real nas mãos." data-tone="b">
+        <div class="video-topic" data-video="UhNkceGHAyk" data-title="Python para iniciantes: o básico em poucos minutos" data-tag="Programação" data-desc="Um jeito rápido e simples de entender os fundamentos de Python, pra quem nunca programou." data-tone="b">
           <span class="vt-tag">Programação</span>
-          <span class="vt-title">Python do zero ao primeiro projeto</span>
+          <span class="vt-title">Python para iniciantes: o básico em poucos minutos</span>
         </div>
-        <div class="video-topic" data-title="Como pequenos negócios usam tecnologia pra crescer" data-tag="Empreendedorismo" data-desc="Casos práticos de automação e planilhas que economizam tempo real de quem empreende." data-tone="c">
+        <div class="video-topic" data-video="AWIR5fugwPw" data-title="Inovação para pequenos negócios: como acompanhar as tendências" data-tag="Empreendedorismo" data-desc="Como pequenos negócios podem usar tecnologia pra não ficar pra trás no mercado." data-tone="c">
           <span class="vt-tag">Empreendedorismo</span>
-          <span class="vt-title">Como pequenos negócios usam tecnologia pra crescer</span>
+          <span class="vt-title">Inovação para pequenos negócios: como acompanhar as tendências</span>
         </div>
-        <div class="video-topic" data-title="Boas práticas para proteger seus dados" data-tag="Cibersegurança" data-desc="O básico que todo negócio precisa saber sobre senhas, backups e golpes comuns." data-tone="a">
+        <div class="video-topic" data-video="PTwCVI781-c" data-title="Cibersegurança: como proteger pessoas, empresas e dados" data-tag="Cibersegurança" data-desc="Por que a pergunta não é mais 'se' vamos sofrer um ataque digital, e sim 'quando' — e como se preparar." data-tone="a">
           <span class="vt-tag">Cibersegurança</span>
-          <span class="vt-title">Boas práticas para proteger seus dados</span>
+          <span class="vt-title">Cibersegurança: como proteger pessoas, empresas e dados</span>
         </div>
-        <div class="video-topic" data-title="Curiosidades que você não sabia sobre a internet" data-tag="Curiosidades Tech" data-desc="Fatos rápidos e divertidos sobre como a tecnologia que usamos todo dia realmente funciona." data-tone="b">
+        <div class="video-topic" data-video="tDXMLWfWxKE" data-title="10 curiosidades incríveis sobre a internet" data-tag="Curiosidades Tech" data-desc="Fatos rápidos e divertidos sobre como a internet que usamos todo dia realmente funciona." data-tone="b">
           <span class="vt-tag">Curiosidades Tech</span>
-          <span class="vt-title">Curiosidades que você não sabia sobre a internet</span>
+          <span class="vt-title">10 curiosidades incríveis sobre a internet</span>
         </div>
       </div>
       <div class="video-stage">
-        <div class="video-thumb" id="video-thumb" style="background: linear-gradient(135deg, var(--surface-2), var(--accent-dim));">
+        <div class="video-thumb" id="video-thumb" data-video="aSKf0DXcLyU" style="background-image:url('https://img.youtube.com/vi/aSKf0DXcLyU/hqdefault.jpg');">
           <span class="vt-badge" id="video-badge">Inteligência Artificial</span>
-          <div class="play-btn">
+          <div class="play-btn" id="video-play">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7Z"/></svg>
           </div>
-          <span style="font-family:'IBM Plex Mono'; font-size:0.7rem; color:rgba(255,255,255,0.7);">vídeo de exemplo — em breve substituído</span>
         </div>
         <div class="video-info">
-          <h3 id="video-title">Os bastidores da nova onda de IA</h3>
-          <p id="video-desc">Um panorama rápido de como ferramentas como Claude, ChatGPT e Gemini estão mudando o trabalho do dia a dia.</p>
+          <h3 id="video-title">Novidades e tendências em Inteligência Artificial</h3>
+          <p id="video-desc">Panorama de 2026 sobre como os agentes de IA estão evoluindo e o que isso muda no dia a dia.</p>
         </div>
       </div>
     </div>
@@ -1344,22 +1350,43 @@
   const videoTopics = document.querySelectorAll(".video-topic");
   const videoTitle = document.getElementById("video-title");
   const videoDesc = document.getElementById("video-desc");
-  const videoBadge = document.getElementById("video-badge");
-  const videoThumb = document.getElementById("video-thumb");
+  const videoStage = document.querySelector(".video-stage");
 
-  const toneGradients = {
-    a: "linear-gradient(135deg, var(--surface-2), var(--accent-dim))",
-    b: "linear-gradient(135deg, #154060, #5FD4FF33)",
-    c: "linear-gradient(135deg, #1B3352, #3ECF8E33)",
-  };
+  function renderThumb(videoId, badgeText){
+    const thumbHtml =
+      '<div class="video-thumb" id="video-thumb" data-video="' + videoId + '" ' +
+      'style="background-image:url(\'https://img.youtube.com/vi/' + videoId + '/hqdefault.jpg\');">' +
+      '<span class="vt-badge" id="video-badge">' + badgeText + '</span>' +
+      '<div class="play-btn" id="video-play">' +
+      '<svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7Z"/></svg>' +
+      '</div></div>';
+    const oldThumb = videoStage.querySelector(".video-thumb, iframe");
+    oldThumb.outerHTML = thumbHtml;
+    attachPlayHandler();
+  }
+
+  function attachPlayHandler(){
+    const thumb = document.getElementById("video-thumb");
+    if (thumb){
+      thumb.addEventListener("click", () => {
+        const id = thumb.dataset.video;
+        const iframe = document.createElement("iframe");
+        iframe.src = "https://www.youtube.com/embed/" + id + "?autoplay=1";
+        iframe.title = "Vídeo em alta";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+        thumb.replaceWith(iframe);
+      });
+    }
+  }
+  attachPlayHandler();
 
   function setActiveVideo(topic){
     videoTopics.forEach(t => t.classList.remove("active"));
     topic.classList.add("active");
     videoTitle.textContent = topic.dataset.title;
     videoDesc.textContent = topic.dataset.desc;
-    videoBadge.textContent = topic.dataset.tag;
-    videoThumb.style.background = toneGradients[topic.dataset.tone] || toneGradients.a;
+    renderThumb(topic.dataset.video, topic.dataset.tag);
   }
 
   videoTopics.forEach(topic => {
