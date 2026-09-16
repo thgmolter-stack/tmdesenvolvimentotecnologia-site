@@ -12,14 +12,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #050B12;
-    --surface: #0A1420;
-    --surface-2: #0F1E30;
-    --line: #1C3350;
+    --bg: #101C2C;
+    --surface: #17263B;
+    --surface-2: #1E3049;
+    --line: #2C4562;
     --text: #EAF2FA;
-    --muted: #7C93AC;
+    --muted: #93ACC9;
     --accent: #2E8FEE;
-    --accent-dim: #16385C;
+    --accent-dim: #1B3C5C;
     --blue: #5FD4FF;
     --amber: #E8B75E;
     --silver: linear-gradient(135deg, #EAF2FA 0%, #9FBEDD 45%, #FFFFFF 70%, #6FA8D8 100%);
@@ -440,17 +440,41 @@
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <span class="cellref">B2 : B4</span>
+        <span class="cellref">B2 : B8</span>
         <h2>Dicas de tecnologia sem enrolação</h2>
       </div>
       <p>Conteúdo direto sobre automação, produtividade e ferramentas — pensado pra quem faz e não só lê.</p>
     </div>
     <div class="blog-grid">
+      <a class="card" href="blog-claude-iniciantes.html">
+        <div class="tag-row"><span class="tag">IA</span><span class="tag">Claude</span></div>
+        <h3>Claude para quem está começando: o que dá pra fazer no dia a dia</h3>
+        <p>O que ele faz bem, exemplos de prompts e como usar para organizar seu negócio.</p>
+        <div class="meta">20 ago · 7 min de leitura</div>
+      </a>
+      <a class="card" href="blog-python-iniciantes.html">
+        <div class="tag-row"><span class="tag">Python</span><span class="tag">Programação</span></div>
+        <h3>Python para quem nunca programou: seu primeiro código em 10 minutos</h3>
+        <p>Linhas de código simples para testar e entender a lógica de programação.</p>
+        <div class="meta">18 ago · 9 min de leitura</div>
+      </a>
+      <a class="card" href="blog-chatgpt-dicas.html">
+        <div class="tag-row"><span class="tag">IA</span><span class="tag">ChatGPT</span></div>
+        <h3>ChatGPT no trabalho: prompts prontos para usar hoje</h3>
+        <p>Dicas práticas com exemplos de prompts prontos para copiar e usar.</p>
+        <div class="meta">15 ago · 6 min de leitura</div>
+      </a>
       <a class="card" href="blog-formulas-sheets.html">
         <div class="tag-row"><span class="tag">Automação</span><span class="tag">Planilhas</span></div>
         <h3>5 fórmulas do Google Sheets que economizam horas por semana</h3>
         <p>PROCV, SOMASE e companhia — na prática, com exemplos reais de controle financeiro.</p>
         <div class="meta">12 ago · 6 min de leitura</div>
+      </a>
+      <a class="card" href="blog-gemini-dicas.html">
+        <div class="tag-row"><span class="tag">IA</span><span class="tag">Gemini</span></div>
+        <h3>Gemini (Google): quando vale a pena usar em vez de outras IAs</h3>
+        <p>Quando ele se destaca e como combinar com planilhas do Google Sheets.</p>
+        <div class="meta">10 ago · 6 min de leitura</div>
       </a>
       <a class="card" href="blog-ia-rotina.html">
         <div class="tag-row"><span class="tag">IA</span></div>
@@ -480,11 +504,19 @@
     <div class="prod-grid">
       <div class="prod">
         <div class="prod-preview">
-          <table class="grid" style="font-size:0.72rem;">
-            <tr><th></th><th>Imóvel</th><th>Status</th></tr>
-            <tr><td class="rowlabel">1</td><td>Apto 12</td><td class="num pos">Pago</td></tr>
-            <tr><td class="rowlabel">2</td><td>Loja 3</td><td class="num selected">Atraso</td></tr>
-          </table>
+          <div class="sheet" style="margin:0;">
+            <div class="sheet-bar">
+              <span class="fx">fx</span>
+              <span class="formula">=SE(D3>HOJE();"Atraso";"Pago")</span>
+              <span style="margin-left:auto; font-size:0.68rem; opacity:0.7;">controle_aluguel.xlsx</span>
+            </div>
+            <table class="grid" style="font-size:0.7rem;">
+              <tr><th></th><th>Imóvel</th><th>Vencto</th><th>Status</th></tr>
+              <tr><td class="rowlabel">1</td><td>Apto 12</td><td class="num">05/09</td><td class="num">Pago</td></tr>
+            <tr><td class="rowlabel">2</td><td>Loja 3</td><td class="num selected">10/09</td><td class="num">Atraso</td></tr>
+            <tr><td class="rowlabel">3</td><td>Casa 7</td><td class="num">15/09</td><td class="num">Pago</td></tr>
+            </table>
+          </div>
         </div>
         <div class="prod-body">
           <h3>Controle de Aluguel</h3>
@@ -497,11 +529,19 @@
       </div>
       <div class="prod">
         <div class="prod-preview">
-          <table class="grid" style="font-size:0.72rem;">
-            <tr><th></th><th>Tipo</th><th>Valor</th></tr>
-            <tr><td class="rowlabel">1</td><td>Entrada</td><td class="num pos">+850</td></tr>
-            <tr><td class="rowlabel">2</td><td>Saída</td><td class="num selected">-320</td></tr>
-          </table>
+          <div class="sheet" style="margin:0;">
+            <div class="sheet-bar">
+              <span class="fx">fx</span>
+              <span class="formula">=SOMASE(B:B;"Entrada";C:C)</span>
+              <span style="margin-left:auto; font-size:0.68rem; opacity:0.7;">controle_caixa.xlsx</span>
+            </div>
+            <table class="grid" style="font-size:0.7rem;">
+              <tr><th></th><th>Data</th><th>Tipo</th><th>Valor</th></tr>
+              <tr><td class="rowlabel">1</td><td>12/08</td><td class="num">Entrada</td><td class="num">+850</td></tr>
+            <tr><td class="rowlabel">2</td><td>13/08</td><td class="num selected">Saída</td><td class="num">-320</td></tr>
+            <tr><td class="rowlabel">3</td><td>14/08</td><td class="num">Entrada</td><td class="num">+410</td></tr>
+            </table>
+          </div>
         </div>
         <div class="prod-body">
           <h3>Controle de Caixa</h3>
@@ -514,11 +554,19 @@
       </div>
       <div class="prod">
         <div class="prod-preview">
-          <table class="grid" style="font-size:0.72rem;">
-            <tr><th></th><th>Item</th><th>Qtd</th></tr>
-            <tr><td class="rowlabel">1</td><td>Produto A</td><td class="num">124</td></tr>
-            <tr><td class="rowlabel">2</td><td>Produto B</td><td class="num selected">08</td></tr>
-          </table>
+          <div class="sheet" style="margin:0;">
+            <div class="sheet-bar">
+              <span class="fx">fx</span>
+              <span class="formula">=SE(C4<10;"Repor";"OK")</span>
+              <span style="margin-left:auto; font-size:0.68rem; opacity:0.7;">controle_produto.xlsx</span>
+            </div>
+            <table class="grid" style="font-size:0.7rem;">
+              <tr><th></th><th>Produto</th><th>Qtd</th><th>Status</th></tr>
+              <tr><td class="rowlabel">1</td><td>Produto A</td><td class="num">124</td><td class="num">OK</td></tr>
+            <tr><td class="rowlabel">2</td><td>Produto B</td><td class="num selected">08</td><td class="num">Repor</td></tr>
+            <tr><td class="rowlabel">3</td><td>Produto C</td><td class="num">56</td><td class="num">OK</td></tr>
+            </table>
+          </div>
         </div>
         <div class="prod-body">
           <h3>Controle de Produto</h3>
@@ -531,11 +579,19 @@
       </div>
       <div class="prod">
         <div class="prod-preview">
-          <table class="grid" style="font-size:0.72rem;">
-            <tr><th></th><th>Turno</th><th>Dia</th></tr>
-            <tr><td class="rowlabel">1</td><td>Carlos</td><td class="num">Seg</td></tr>
-            <tr><td class="rowlabel">2</td><td>Ana</td><td class="num selected">Ter</td></tr>
-          </table>
+          <div class="sheet" style="margin:0;">
+            <div class="sheet-bar">
+              <span class="fx">fx</span>
+              <span class="formula">=PROCV(A2;Equipe!A:C;2;FALSO)</span>
+              <span style="margin-left:auto; font-size:0.68rem; opacity:0.7;">escala_frentistas.xlsm</span>
+            </div>
+            <table class="grid" style="font-size:0.7rem;">
+              <tr><th></th><th>Frentista</th><th>Turno</th><th>Dia</th></tr>
+              <tr><td class="rowlabel">1</td><td>Carlos</td><td class="num">Manhã</td><td class="num">Seg</td></tr>
+            <tr><td class="rowlabel">2</td><td>Ana</td><td class="num selected">Noite</td><td class="num">Ter</td></tr>
+            <tr><td class="rowlabel">3</td><td>Bruno</td><td class="num">Tarde</td><td class="num">Qua</td></tr>
+            </table>
+          </div>
         </div>
         <div class="prod-body">
           <h3>Escala de Frentistas</h3>
@@ -548,11 +604,19 @@
       </div>
       <div class="prod">
         <div class="prod-preview">
-          <table class="grid" style="font-size:0.72rem;">
-            <tr><th></th><th>Infração</th><th>Pts</th></tr>
-            <tr><td class="rowlabel">1</td><td>Velocidade</td><td class="num selected">4</td></tr>
-            <tr><td class="rowlabel">2</td><td>Sinal</td><td class="num neg">7</td></tr>
-          </table>
+          <div class="sheet" style="margin:0;">
+            <div class="sheet-bar">
+              <span class="fx">fx</span>
+              <span class="formula">=CONT.SE(D:D;">3")</span>
+              <span style="margin-left:auto; font-size:0.68rem; opacity:0.7;">controle_multas.xlsx</span>
+            </div>
+            <table class="grid" style="font-size:0.7rem;">
+              <tr><th></th><th>Placa</th><th>Infração</th><th>Pts</th></tr>
+              <tr><td class="rowlabel">1</td><td>ABC-1234</td><td class="num">Velocidade</td><td class="num">4</td></tr>
+            <tr><td class="rowlabel">2</td><td>XYZ-9988</td><td class="num selected">Sinal</td><td class="num">7</td></tr>
+            <tr><td class="rowlabel">3</td><td>QWE-4455</td><td class="num">Estac.</td><td class="num">2</td></tr>
+            </table>
+          </div>
         </div>
         <div class="prod-body">
           <h3>Controle de Multas de Trânsito</h3>
@@ -565,11 +629,19 @@
       </div>
       <div class="prod">
         <div class="prod-preview">
-          <table class="grid" style="font-size:0.72rem;">
-            <tr><th></th><th>Cargo</th><th>Status</th></tr>
-            <tr><td class="rowlabel">1</td><td>João</td><td class="num pos">Ativo</td></tr>
-            <tr><td class="rowlabel">2</td><td>Marta</td><td class="num selected">Férias</td></tr>
-          </table>
+          <div class="sheet" style="margin:0;">
+            <div class="sheet-bar">
+              <span class="fx">fx</span>
+              <span class="formula">=SE(C2="Férias";"Ausente";"Ativo")</span>
+              <span style="margin-left:auto; font-size:0.68rem; opacity:0.7;">planilha_rh.xlsm</span>
+            </div>
+            <table class="grid" style="font-size:0.7rem;">
+              <tr><th></th><th>Colaborador</th><th>Cargo</th><th>Status</th></tr>
+              <tr><td class="rowlabel">1</td><td>João</td><td class="num">Vendas</td><td class="num">Ativo</td></tr>
+            <tr><td class="rowlabel">2</td><td>Marta</td><td class="num selected">Financeiro</td><td class="num">Férias</td></tr>
+            <tr><td class="rowlabel">3</td><td>Ana</td><td class="num">RH</td><td class="num">Ativo</td></tr>
+            </table>
+          </div>
         </div>
         <div class="prod-body">
           <h3>Planilha de RH</h3>
@@ -582,11 +654,19 @@
       </div>
       <div class="prod">
         <div class="prod-preview">
-          <table class="grid" style="font-size:0.72rem;">
-            <tr><th></th><th>Meta</th><th>Real.</th></tr>
-            <tr><td class="rowlabel">1</td><td>50k</td><td class="num pos">54k</td></tr>
-            <tr><td class="rowlabel">2</td><td>60k</td><td class="num selected">58k</td></tr>
-          </table>
+          <div class="sheet" style="margin:0;">
+            <div class="sheet-bar">
+              <span class="fx">fx</span>
+              <span class="formula">=(C2/B2)*100</span>
+              <span style="margin-left:auto; font-size:0.68rem; opacity:0.7;">metas_simples.xlsx</span>
+            </div>
+            <table class="grid" style="font-size:0.7rem;">
+              <tr><th></th><th>Mês</th><th>Meta</th><th>Real.</th></tr>
+              <tr><td class="rowlabel">1</td><td>Jul</td><td class="num">50k</td><td class="num">54k</td></tr>
+            <tr><td class="rowlabel">2</td><td>Ago</td><td class="num selected">60k</td><td class="num">58k</td></tr>
+            <tr><td class="rowlabel">3</td><td>Set</td><td class="num">55k</td><td class="num">61k</td></tr>
+            </table>
+          </div>
         </div>
         <div class="prod-body">
           <h3>Planilha de Metas (Simples)</h3>
@@ -599,11 +679,19 @@
       </div>
       <div class="prod">
         <div class="prod-preview">
-          <table class="grid" style="font-size:0.72rem;">
-            <tr><th></th><th>Orçado</th><th>Real.</th></tr>
-            <tr><td class="rowlabel">1</td><td>5.000</td><td class="num pos">4.200</td></tr>
-            <tr><td class="rowlabel">2</td><td>12.000</td><td class="num selected">13.400</td></tr>
-          </table>
+          <div class="sheet" style="margin:0;">
+            <div class="sheet-bar">
+              <span class="fx">fx</span>
+              <span class="formula">=C2-B2</span>
+              <span style="margin-left:auto; font-size:0.68rem; opacity:0.7;">relatorio_orcamento.xlsm</span>
+            </div>
+            <table class="grid" style="font-size:0.7rem;">
+              <tr><th></th><th>Categoria</th><th>Orçado</th><th>Real.</th></tr>
+              <tr><td class="rowlabel">1</td><td>Marketing</td><td class="num">5.000</td><td class="num">4.200</td></tr>
+            <tr><td class="rowlabel">2</td><td>Operação</td><td class="num selected">12.000</td><td class="num">13.400</td></tr>
+            <tr><td class="rowlabel">3</td><td>TI</td><td class="num">3.000</td><td class="num">2.850</td></tr>
+            </table>
+          </div>
         </div>
         <div class="prod-body">
           <h3>Relatório de Orçamento</h3>
@@ -616,11 +704,19 @@
       </div>
       <div class="prod">
         <div class="prod-preview">
-          <table class="grid" style="font-size:0.72rem;">
-            <tr><th></th><th>Item</th><th>Custo</th></tr>
-            <tr><td class="rowlabel">1</td><td>Filamento</td><td class="num pos">R$ 6,20</td></tr>
-            <tr><td class="rowlabel">2</td><td>Energia</td><td class="num selected">R$ 1,80</td></tr>
-          </table>
+          <div class="sheet" style="margin:0;">
+            <div class="sheet-bar">
+              <span class="fx">fx</span>
+              <span class="formula">=(B2*C2)+D2</span>
+              <span style="margin-left:auto; font-size:0.68rem; opacity:0.7;">calc_impressao3d.xlsx</span>
+            </div>
+            <table class="grid" style="font-size:0.7rem;">
+              <tr><th></th><th>Item</th><th>Custo</th><th>Total</th></tr>
+              <tr><td class="rowlabel">1</td><td>Filamento</td><td class="num">R$ 6,20</td><td class="num">R$ 18,60</td></tr>
+            <tr><td class="rowlabel">2</td><td>Energia</td><td class="num selected">R$ 1,80</td><td class="num">R$ 5,40</td></tr>
+            <tr><td class="rowlabel">3</td><td>Máquina</td><td class="num">R$ 2,50</td><td class="num">R$ 7,50</td></tr>
+            </table>
+          </div>
         </div>
         <div class="prod-body">
           <h3>Calculadora de Custo de Impressão 3D</h3>
@@ -633,11 +729,19 @@
       </div>
       <div class="prod">
         <div class="prod-preview">
-          <table class="grid" style="font-size:0.72rem;">
-            <tr><th></th><th>Item</th><th>Rateio</th></tr>
-            <tr><td class="rowlabel">1</td><td>Cliente A</td><td class="num pos">R$ 42</td></tr>
-            <tr><td class="rowlabel">2</td><td>Cliente B</td><td class="num selected">R$ 58</td></tr>
-          </table>
+          <div class="sheet" style="margin:0;">
+            <div class="sheet-bar">
+              <span class="fx">fx</span>
+              <span class="formula">=B2/SOMA($B$2:$B$4)*E1</span>
+              <span style="margin-left:auto; font-size:0.68rem; opacity:0.7;">calc_rateio_frete.xlsx</span>
+            </div>
+            <table class="grid" style="font-size:0.7rem;">
+              <tr><th></th><th>Cliente</th><th>Peso</th><th>Rateio</th></tr>
+              <tr><td class="rowlabel">1</td><td>Cliente A</td><td class="num">3kg</td><td class="num">R$ 42</td></tr>
+            <tr><td class="rowlabel">2</td><td>Cliente B</td><td class="num">5kg</td><td class="num selected">R$ 58</td></tr>
+            <tr><td class="rowlabel">3</td><td>Cliente C</td><td class="num">2kg</td><td class="num">R$ 23</td></tr>
+            </table>
+          </div>
         </div>
         <div class="prod-body">
           <h3>Calculadora de Rateio de Frete</h3>
@@ -650,11 +754,19 @@
       </div>
       <div class="prod">
         <div class="prod-preview">
-          <table class="grid" style="font-size:0.72rem;">
-            <tr><th></th><th>Categoria</th><th>Valor</th></tr>
-            <tr><td class="rowlabel">1</td><td>Mercado</td><td class="num">R$ 380</td></tr>
-            <tr><td class="rowlabel">2</td><td>Transporte</td><td class="num selected">R$ 120</td></tr>
-          </table>
+          <div class="sheet" style="margin:0;">
+            <div class="sheet-bar">
+              <span class="fx">fx</span>
+              <span class="formula">=SOMASE(A:A;"Mercado";B:B)</span>
+              <span style="margin-left:auto; font-size:0.68rem; opacity:0.7;">despesas_basico.xlsx</span>
+            </div>
+            <table class="grid" style="font-size:0.7rem;">
+              <tr><th></th><th>Categoria</th><th>Valor</th><th>Status</th></tr>
+              <tr><td class="rowlabel">1</td><td>Mercado</td><td class="num">R$ 380</td><td class="num">-</td></tr>
+            <tr><td class="rowlabel">2</td><td>Transporte</td><td class="num selected">R$ 120</td><td class="num">-</td></tr>
+            <tr><td class="rowlabel">3</td><td>Lazer</td><td class="num">R$ 90</td><td class="num">-</td></tr>
+            </table>
+          </div>
         </div>
         <div class="prod-body">
           <h3>Controle de Despesas (Básico)</h3>
@@ -667,11 +779,19 @@
       </div>
       <div class="prod">
         <div class="prod-preview">
-          <table class="grid" style="font-size:0.72rem;">
-            <tr><th></th><th>Categoria</th><th>Status</th></tr>
-            <tr><td class="rowlabel">1</td><td>Fixas</td><td class="num pos">Em dia</td></tr>
-            <tr><td class="rowlabel">2</td><td>Variáveis</td><td class="num selected">Acima</td></tr>
-          </table>
+          <div class="sheet" style="margin:0;">
+            <div class="sheet-bar">
+              <span class="fx">fx</span>
+              <span class="formula">=SE(B2>Meta2;"Acima";"Em dia")</span>
+              <span style="margin-left:auto; font-size:0.68rem; opacity:0.7;">despesas_avancado.xlsm</span>
+            </div>
+            <table class="grid" style="font-size:0.7rem;">
+              <tr><th></th><th>Categoria</th><th>Gasto</th><th>Status</th></tr>
+              <tr><td class="rowlabel">1</td><td>Fixas</td><td class="num">R$ 2.100</td><td class="num">Em dia</td></tr>
+            <tr><td class="rowlabel">2</td><td>Variáveis</td><td class="num selected">R$ 980</td><td class="num">Acima</td></tr>
+            <tr><td class="rowlabel">3</td><td>Investim.</td><td class="num">R$ 500</td><td class="num">Em dia</td></tr>
+            </table>
+          </div>
         </div>
         <div class="prod-body">
           <h3>Controle de Despesas (Avançado)</h3>
@@ -837,19 +957,27 @@
       </form>
       <div class="side-info">
         <div class="info-row">
-          <span class="ico">@</span>
+          <span class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          </span>
           <div><h4>E-mail</h4><p><a href="mailto:thgmolter@gmail.com" style="color:var(--blue); text-decoration:none;">thgmolter@gmail.com</a></p></div>
         </div>
         <div class="info-row">
-          <span class="ico">◎</span>
+          <span class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </span>
           <div><h4>Instagram</h4><p><a href="https://instagram.com/tmdesenvolvimentotecnologia" target="_blank" rel="noopener" style="color:var(--blue); text-decoration:none;">@tmdesenvolvimentotecnologia</a></p></div>
         </div>
         <div class="info-row">
-          <span class="ico">☎</span>
+          <span class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.29-1.39a9.87 9.87 0 0 0 4.7 1.2h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.69 2 12.04 2Zm5.83 14.16c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.12.11-1.81-.11-.42-.13-.95-.31-1.64-.6-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.98 0-1.42.74-2.11 1.01-2.4.26-.29.57-.36.76-.36h.55c.18 0 .42-.07.65.5.24.58.81 2 .88 2.15.07.15.12.32.02.51-.1.19-.15.31-.3.48-.15.17-.32.38-.45.51-.15.15-.31.31-.13.6.18.29.79 1.31 1.7 2.12 1.17 1.05 2.16 1.37 2.45 1.53.29.15.46.13.63-.05.17-.18.72-.83.91-1.11.19-.29.38-.24.63-.15.26.1 1.65.78 1.93.92.29.15.48.22.55.34.07.13.07.72-.17 1.4Z"/></svg>
+          </span>
           <div><h4>WhatsApp</h4><p><a href="https://wa.me/5524993150820" target="_blank" rel="noopener" style="color:var(--blue); text-decoration:none;">Chamar no WhatsApp</a> · resposta em até 1 dia útil</p></div>
         </div>
         <div class="info-row">
-          <span class="ico">◷</span>
+          <span class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </span>
           <div><h4>Horário</h4><p>Seg a sex, 9h às 18h</p></div>
         </div>
       </div>
