@@ -418,6 +418,34 @@
   }
   .wa-float:hover{ transform: scale(1.06); }
 
+  /* BUY MODAL */
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(5,11,18,0.72); backdrop-filter:blur(3px);
+    display:none; align-items:center; justify-content:center; z-index:100; padding:20px;
+  }
+  .modal-overlay.open{ display:flex; }
+  .modal-box{
+    background: var(--surface); border:1px solid var(--line); border-radius:18px;
+    padding:28px; max-width:420px; width:100%; position:relative;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
+  }
+  .modal-close{
+    position:absolute; top:14px; right:14px; background:none; border:none; color:var(--muted);
+    font-size:1.3rem; cursor:pointer; line-height:1; padding:4px;
+  }
+  .modal-close:hover{ color:var(--text); }
+  .modal-box h3{ font-size:1.15rem; margin-bottom:4px; }
+  .modal-product{ font-family:'IBM Plex Mono'; font-size:0.82rem; color:var(--accent); margin-bottom:18px; }
+  .modal-box .field{ margin-bottom:14px; }
+  .modal-box .field label{ display:block; font-family:'IBM Plex Mono'; font-size:0.74rem; color:var(--muted); margin-bottom:6px;}
+  .modal-box .field input{
+    width:100%; background:var(--surface-2); border:1px solid var(--line); border-radius:8px;
+    padding:11px 14px; color:var(--text); font-family:'Inter'; font-size:0.9rem;
+  }
+  .modal-box .field input:focus{ outline:2px solid var(--accent); outline-offset:1px; }
+  .modal-submit{ width:100%; margin-top:6px; justify-content:center; }
+  .modal-note{ font-family:'IBM Plex Mono'; font-size:0.72rem; color:var(--muted); margin-top:14px; text-align:center; }
+
   footer{ border-top:1px solid var(--line); padding:40px 0; }
   .foot-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
   .foot-tabs{ display:flex; gap:20px; flex-wrap:wrap;}
@@ -730,7 +758,7 @@
           <p>Contratos, vencimentos e recebimentos organizados em um só lugar.</p>
           <div class="price-row">
             <span class="price">R$ 19,90</span>
-            <a class="buy" href="https://mpago.la/1gBMSG9" target="_blank" rel="noopener">Comprar</a>
+            <button type="button" class="buy" data-product="Controle de Aluguel" data-price="R$ 19,90" data-pay="https://mpago.la/1gBMSG9" onclick="openBuyModal(this)">Comprar</button>
           </div>
         </div>
       </div>
@@ -755,7 +783,7 @@
           <p>Registre entradas e saídas do caixa diário sem complicação.</p>
           <div class="price-row">
             <span class="price">R$ 19,90</span>
-            <a class="buy" href="https://mpago.la/1zvBUnx" target="_blank" rel="noopener">Comprar</a>
+            <button type="button" class="buy" data-product="Controle de Caixa" data-price="R$ 19,90" data-pay="https://mpago.la/1zvBUnx" onclick="openBuyModal(this)">Comprar</button>
           </div>
         </div>
       </div>
@@ -780,7 +808,7 @@
           <p>Entradas, saídas e alerta automático de reposição de estoque.</p>
           <div class="price-row">
             <span class="price">R$ 19,90</span>
-            <a class="buy" href="https://mpago.la/1NcmGpP" target="_blank" rel="noopener">Comprar</a>
+            <button type="button" class="buy" data-product="Controle de Produto" data-price="R$ 19,90" data-pay="https://mpago.la/1NcmGpP" onclick="openBuyModal(this)">Comprar</button>
           </div>
         </div>
       </div>
@@ -805,7 +833,7 @@
           <p>Monte a escala de turnos da equipe sem conflito de horário.</p>
           <div class="price-row">
             <span class="price">R$ 49,90</span>
-            <a class="buy" href="https://mpago.la/1Az7Y6U" target="_blank" rel="noopener">Comprar</a>
+            <button type="button" class="buy" data-product="Escala de Frentistas" data-price="R$ 49,90" data-pay="https://mpago.la/1Az7Y6U" onclick="openBuyModal(this)">Comprar</button>
           </div>
         </div>
       </div>
@@ -830,7 +858,7 @@
           <p>Acompanhe multas, pontos e prazos de recurso da frota.</p>
           <div class="price-row">
             <span class="price">R$ 49,90</span>
-            <a class="buy" href="https://mpago.la/1n7wVLQ" target="_blank" rel="noopener">Comprar</a>
+            <button type="button" class="buy" data-product="Controle de Multas de Trânsito" data-price="R$ 49,90" data-pay="https://mpago.la/1n7wVLQ" onclick="openBuyModal(this)">Comprar</button>
           </div>
         </div>
       </div>
@@ -855,7 +883,7 @@
           <p>Controle de atestados e faltas, ASOs e GES, e férias dos colaboradores em um só lugar.</p>
           <div class="price-row">
             <span class="price">R$ 49,90</span>
-            <a class="buy" href="https://mpago.la/2cHQKh4" target="_blank" rel="noopener">Comprar</a>
+            <button type="button" class="buy" data-product="Planilha de Gestão de Pessoas" data-price="R$ 49,90" data-pay="https://mpago.la/2cHQKh4" onclick="openBuyModal(this)">Comprar</button>
           </div>
         </div>
       </div>
@@ -880,7 +908,7 @@
           <p>Defina e acompanhe metas de vendas ou desempenho, sem complicação.</p>
           <div class="price-row">
             <span class="price">R$ 19,90</span>
-            <a class="buy" href="https://mpago.la/1hBDeys" target="_blank" rel="noopener">Comprar</a>
+            <button type="button" class="buy" data-product="Planilha de Metas (Simples)" data-price="R$ 19,90" data-pay="https://mpago.la/1hBDeys" onclick="openBuyModal(this)">Comprar</button>
           </div>
         </div>
       </div>
@@ -905,7 +933,7 @@
           <p>Compare orçado x realizado e visualize as variações na hora.</p>
           <div class="price-row">
             <span class="price">R$ 19,90</span>
-            <a class="buy" href="https://mpago.la/25oPNJr" target="_blank" rel="noopener">Comprar</a>
+            <button type="button" class="buy" data-product="Relatório de Orçamento" data-price="R$ 19,90" data-pay="https://mpago.la/25oPNJr" onclick="openBuyModal(this)">Comprar</button>
           </div>
         </div>
       </div>
@@ -930,7 +958,7 @@
           <p>Calcule filamento, energia e tempo de máquina e descubra o preço certo de cada peça.</p>
           <div class="price-row">
             <span class="price">R$ 19,90</span>
-            <a class="buy" href="https://mpago.la/23zH74f" target="_blank" rel="noopener">Comprar</a>
+            <button type="button" class="buy" data-product="Calculadora de Custo de Impressão 3D" data-price="R$ 19,90" data-pay="https://mpago.la/23zH74f" onclick="openBuyModal(this)">Comprar</button>
           </div>
         </div>
       </div>
@@ -955,7 +983,7 @@
           <p>Divida o custo do frete entre pedidos ou clientes de forma justa e automática.</p>
           <div class="price-row">
             <span class="price">R$ 19,90</span>
-            <a class="buy" href="https://mpago.la/2VcNHiT" target="_blank" rel="noopener">Comprar</a>
+            <button type="button" class="buy" data-product="Calculadora de Rateio de Frete" data-price="R$ 19,90" data-pay="https://mpago.la/2VcNHiT" onclick="openBuyModal(this)">Comprar</button>
           </div>
         </div>
       </div>
@@ -980,7 +1008,7 @@
           <p>Organize suas despesas por categoria e veja para onde o dinheiro está indo.</p>
           <div class="price-row">
             <span class="price">R$ 29,90</span>
-            <a class="buy" href="https://mpago.la/1dRSRUX" target="_blank" rel="noopener">Comprar</a>
+            <button type="button" class="buy" data-product="Controle de Despesas (Básico)" data-price="R$ 29,90" data-pay="https://mpago.la/1dRSRUX" onclick="openBuyModal(this)">Comprar</button>
           </div>
         </div>
       </div>
@@ -1005,7 +1033,7 @@
           <p>Despesas fixas, variáveis, metas de gasto e gráficos automáticos por categoria.</p>
           <div class="price-row">
             <span class="price">R$ 49,90</span>
-            <a class="buy" href="https://mpago.la/1QAdVbV" target="_blank" rel="noopener">Comprar</a>
+            <button type="button" class="buy" data-product="Controle de Despesas (Avançado)" data-price="R$ 49,90" data-pay="https://mpago.la/1QAdVbV" onclick="openBuyModal(this)">Comprar</button>
           </div>
         </div>
       </div>
@@ -1257,6 +1285,30 @@
   </div>
 </footer>
 
+<div class="modal-overlay" id="buy-modal-overlay">
+  <div class="modal-box">
+    <button type="button" class="modal-close" id="modal-close-btn" aria-label="Fechar">✕</button>
+    <h3>Antes de pagar, me diga quem é você</h3>
+    <div class="modal-product" id="modal-product-label">Planilha · R$ 0,00</div>
+    <form id="buy-modal-form">
+      <div class="field">
+        <label>NOME</label>
+        <input type="text" id="modal-name" placeholder="Seu nome completo" required>
+      </div>
+      <div class="field">
+        <label>E-MAIL (para receber a planilha)</label>
+        <input type="email" id="modal-email" placeholder="seuemail@exemplo.com" required>
+      </div>
+      <div class="field">
+        <label>TELEFONE / WHATSAPP</label>
+        <input type="tel" id="modal-phone" placeholder="(24) 99999-9999" required>
+      </div>
+      <button type="submit" class="btn btn-primary modal-submit">Confirmar e ir para pagamento</button>
+    </form>
+    <p class="modal-note">Vamos te avisar no WhatsApp e você é redirecionado para o pagamento (PIX ou cartão).</p>
+  </div>
+</div>
+
 <a class="wa-float" href="https://wa.me/5524993150820?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20TM%20Desenvolvimento%20Tecnologia" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">☎</a>
 
 <script>
@@ -1383,6 +1435,59 @@
   videoTopics.forEach(topic => {
     topic.addEventListener("mouseenter", () => setActiveVideo(topic));
     topic.addEventListener("click", () => setActiveVideo(topic));
+  });
+
+  // Modal de compra: captura nome/e-mail/telefone, avisa a TM no WhatsApp e leva ao pagamento
+  const buyModalOverlay = document.getElementById("buy-modal-overlay");
+  const buyModalForm = document.getElementById("buy-modal-form");
+  const modalProductLabel = document.getElementById("modal-product-label");
+  const modalCloseBtn = document.getElementById("modal-close-btn");
+  let pendingPaymentLink = null;
+
+  window.openBuyModal = function(btn){
+    const product = btn.dataset.product;
+    const price = btn.dataset.price;
+    pendingPaymentLink = btn.dataset.pay;
+    modalProductLabel.textContent = product + " · " + price;
+    buyModalForm.reset();
+    buyModalOverlay.classList.add("open");
+  };
+
+  function closeBuyModal(){
+    buyModalOverlay.classList.remove("open");
+    pendingPaymentLink = null;
+  }
+
+  modalCloseBtn.addEventListener("click", closeBuyModal);
+  buyModalOverlay.addEventListener("click", (e) => {
+    if (e.target === buyModalOverlay) closeBuyModal();
+  });
+
+  buyModalForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("modal-name").value;
+    const email = document.getElementById("modal-email").value;
+    const phone = document.getElementById("modal-phone").value;
+    const product = modalProductLabel.textContent;
+    const payLink = pendingPaymentLink;
+
+    const alertMessage =
+      "🛒 Nova intenção de compra pelo site:\n" +
+      "Produto: " + product + "\n" +
+      "Nome: " + name + "\n" +
+      "E-mail: " + email + "\n" +
+      "Telefone: " + phone + "\n" +
+      "Assim que o pagamento for confirmado, envie a planilha para o e-mail acima.";
+
+    // Abre o aviso no WhatsApp da TM em nova aba
+    openWhatsApp(alertMessage);
+
+    // Leva o cliente para a tela de pagamento
+    if (payLink){
+      window.location.href = payLink;
+    }
+
+    closeBuyModal();
   });
 
 </script>
